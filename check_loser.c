@@ -14,11 +14,9 @@
 
 int		check_loser(t_tab *toto)
 {
-	int	flag;
 	int i;
 	int j;
 
-	flag = 0;
 	i = 0;
 	while (i++ < 4)
 	{
@@ -26,7 +24,7 @@ int		check_loser(t_tab *toto)
 		while (j++ < 3)
 		{
 			if (toto->tab[i][j] == toto->tab[i][j + 1])
-				flag++;
+				return (1);
 		}
 	}
 	j = 0;
@@ -36,10 +34,8 @@ int		check_loser(t_tab *toto)
 		while (i++ < 3)
 		{
 			if (toto->tab[i][j] == toto->tab[i + 1][j])
-				flag++;
+				return (1);
 		}
 	}
-	if (flag > 0)
-		return (1);
 	return (0);
 }
