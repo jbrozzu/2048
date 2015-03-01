@@ -44,7 +44,7 @@ static int		fonction_2(t_flag *titi, t_tab *toto, int i)
 			{
 				toto->tab[i - 1][j] *= 2;
 				toto->tab[i][j] = 0;
-				flag ++;
+				flag++;
 				toto->empty++;
 				titi->tmp++;
 			}
@@ -87,14 +87,14 @@ void	case_up(t_tab *toto)
 	titi.flag2 = fonction_2(&titi, toto, 2);
 	titi.flag_last2 = titi.tmp;
 	titi.tmp = 0;
-	titi.flag3 = (titi.flag_last1 == 0 ? (fonction_2(&titi, toto, 1)) : (fonction_3(toto, 1)));
+	titi.flag3 = (titi.flag_last1 == 0 && titi.flag_last2 == 0 ? (fonction_2(&titi, toto, 1)) : (fonction_3(toto, 1)));
 	titi.flag_last3 = titi.tmp;
 	titi.flag4 = fonction_2(&titi, toto, 3);
 	titi.flag_last4 = titi.tmp;
 	titi.tmp = 0;
 	titi.flag5 = ((titi.flag_last2 == 0 && titi.flag_last4 == 0) ? (fonction_2(&titi, toto, 2)) : (fonction_3(toto, 2)));
 	titi.flag_last5 = titi.tmp;
-	titi.flag6 = ((titi.flag_last1 == 0 && titi.flag_last3 == 0 && titi.flag_last5 == 0) ? (fonction_2(&titi, toto, 1)) : (fonction_3(toto, 1)));
+	titi.flag6 = ((titi.flag_last1 == 0 && titi.flag_last2 == 0 && titi.flag_last3 == 0 && titi.flag_last5 == 0) ? (fonction_2(&titi, toto, 1)) : (fonction_3(toto, 1)));
 	if ((titi.flag1 + titi.flag2 + titi.flag3 + titi.flag4 + titi.flag5 + titi.flag6) > 0)
 		add_random(toto);
 	if (toto->empty == 0)
