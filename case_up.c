@@ -37,13 +37,14 @@ static int		fonction_2(t_tab *toto, int i)
 			{
 				toto->tab[i - 1][j] = toto->tab[i][j];
 				toto->tab[i][j] = 0;
-				flag += 1;
+				flag++;
 			}
 			else if (toto->tab[i - 1][j] == toto->tab[i][j])
 			{
 				toto->tab[i - 1][j] *= 2;
 				toto->tab[i][j] = 0;
-				flag += 1;
+				flag ++;
+				toto->empty++;
 			}
 		}
 		j++;
@@ -62,4 +63,12 @@ void	case_up(t_tab *toto)
 	toto->flag6 = fonction_2(toto, 1);
 	if ((toto->flag1 + toto->flag2 + toto->flag3 + toto->flag4 + toto->flag5 + toto->flag6) > 0)
 		add_random(toto);
+	if (toto->empty == 0)
+	{
+		if (check_loser(toto) == 0)
+		{
+			mvprintw(100, 100,"YOU LOSE !!!\n");              // DOESN'T WORK ...
+			return;
+		}
+	}	
 }
