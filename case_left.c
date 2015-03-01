@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   case_down.c                                        :+:      :+:    :+:   */
+/*   case_left.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu	  <jbrozzu@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,44 +12,44 @@
 
 #include "wong.h"
 
-static int		fonction_2(t_tab *toto, int i)
+static int		fonction_2(t_tab *toto, int j)
 {
-	int j;
+	int i;
 	int flag;
 
-	j = 0;
+	i = 0;
 	flag = 0;
-	while (j < 4)
+	while (i < 4)
 	{
 		if (toto->tab[i][j] != 0)
 		{
-			if (toto->tab[i + 1][j] == 0)
+			if (toto->tab[i][j - 1] == 0)
 			{
-				toto->tab[i + 1][j] = toto->tab[i][j];
+				toto->tab[i][j - 1] = toto->tab[i][j];
 				toto->tab[i][j] = 0;
 				flag += 1;
 			}
-			else if (toto->tab[i + 1][j] == toto->tab[i][j])
+			else if (toto->tab[i][j - 1] == toto->tab[i][j])
 			{
-				toto->tab[i + 1][j] *= 2;
+				toto->tab[i][j - 1] *= 2;
 				toto->tab[i][j] = 0;
 				flag += 1;
 			}
 		}
-		j++;
+		i++;
 	}
 	return (flag);
 }
 
-void	case_down(t_tab *toto)
+void	case_left(t_tab *toto)
 {
 	set_flags(toto);
-	toto->flag1 = fonction_2(toto, 2);
-	toto->flag2 = fonction_2(toto, 1);
-	toto->flag3 = fonction_2(toto, 2);
-	toto->flag4 = fonction_2(toto, 0);
-	toto->flag5 = fonction_2(toto, 1);
-	toto->flag6 = fonction_2(toto, 2);
+	toto->flag1 = fonction_2(toto, 1);
+	toto->flag2 = fonction_2(toto, 2);
+	toto->flag3 = fonction_2(toto, 1);
+	toto->flag4 = fonction_2(toto, 3);
+	toto->flag5 = fonction_2(toto, 2);
+	toto->flag6 = fonction_2(toto, 1);
 	if ((toto->flag1 + toto->flag2 + toto->flag3 + toto->flag4 + toto->flag5 + toto->flag6) > 0)
 		add_random(toto);
 }

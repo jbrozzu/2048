@@ -1,4 +1,14 @@
-/* === HEADER === */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   2048.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jbrozzu	  <jbrozzu@student.42.fr>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2014/08/03 18:08:35 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/08/17 20:23:25 by jbrozzu          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "wong.h"
 
@@ -88,38 +98,30 @@ int		main()
 	init_tab(&toto);
 	initscr();
 	getmaxyx(stdscr, row, col);
-	
-
-
-	keypad(stdscr, true);       // JEREMIE
-
-
-
+	keypad(stdscr, true);                                     // JEREMIE
 	col < row ? (SIZE_BOARD = col) : (SIZE_BOARD = row);
 	SIZE_CELL = ft_cell_size(SIZE_BOARD);
 	//print_grid();
 	colle00(SIZE_CELL, row, col, &toto);
 	move(0, 0);
-	//refresh();
-	while (1)
+	while (1)                                   // JEREMIE
 	{
 		c = getch();
 		if (c == 27)
 			break;
-		if(c == KEY_UP)                   // JEREMIE
-			case_up(&toto);
-		if(c == KEY_DOWN)
-			case_down(&toto);
-		if(c == KEY_RIGHT)
-			case_right(&toto);
-		/*if(c == KEY_LEFT)
-			case_left(&toto); */              // JEREMIE
-		colle00(SIZE_CELL, row, col, &toto);
+		if(c == KEY_UP)                         // JEREMIE
+			case_up(&toto);                     // JEREMIE
+		if(c == KEY_DOWN)                       // JEREMIE
+			case_down(&toto);                   // JEREMIE
+		if(c == KEY_RIGHT)                      // JEREMIE
+			case_right(&toto);                  // JEREMIE
+		if(c == KEY_LEFT)                       // JEREMIE
+			case_left(&toto);                   // JEREMIE
+		colle00(SIZE_CELL, row, col, &toto);    // JEREMIE
 	}
 	refresh();
 	sleep(1);
 	endwin();
-	//clear_tab(&toto);
 	return (0);
 }
 

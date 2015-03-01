@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu	  <jbrozzu@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/08/03 18:08:35 by jwalle	           #+#    #+#             */
-/*   Updated: 2014/08/17 20:23:25 by jwalle           ###   ########.fr       */
+/*   Created: 2014/08/03 18:08:35 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/08/17 20:23:25 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static int		fonction_2(t_tab *toto, int j)
 
 	i = 0;
 	flag = 0;
-	while (i < 3)
+	while (i < 4)
 	{
 		if (toto->tab[i][j] != 0)
 		{
@@ -36,7 +36,7 @@ static int		fonction_2(t_tab *toto, int j)
 				flag += 1;
 			}
 		}
-		j++;
+		i++;
 	}
 	return (flag);
 }

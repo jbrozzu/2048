@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_key.c                                        :+:      :+:    :+:   */
+/*   case_up.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jbrozzu	  <jbrozzu@student.42.fr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/08/03 18:08:35 by jwalle	           #+#    #+#             */
-/*   Updated: 2014/08/17 20:23:25 by jwalle           ###   ########.fr       */
+/*   Created: 2014/08/03 18:08:35 by jbrozzu           #+#    #+#             */
+/*   Updated: 2014/08/17 20:23:25 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "wong.h"
 
-void	set_flags(t_tab *toto)
+void	set_flags(t_tab *toto)           // Not really useful ... and has to be static !
 {
 	toto->flag1 = 0;
 	toto->flag2 = 0;
