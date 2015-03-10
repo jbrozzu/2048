@@ -109,7 +109,6 @@ int				main(void)
 	init_tab(&toto);
 	initscr();
 	start_color();
-	COLOR_PAIRS = 2049;
 	ft_init_color();
 	curs_set(0);
 	getmaxyx(stdscr, toto.row, toto.col);

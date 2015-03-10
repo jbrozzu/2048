@@ -57,13 +57,10 @@ SRC1 =	ft_putchar.c\
 		ft_strjoin.c\
 		ft_strtrim.c\
 		ft_strsplit.c\
-		ft_putnbr.c\
-		ft_itoa.c\
 		ft_putendl.c\
 		ft_putstr.c\
 		ft_putstr_fd.c\
 		ft_putchar_fd.c\
-		ft_putnbr_fd.c\
 		ft_putendl_fd.c\
 		ft_lstnew.c\
 		ft_lstdelone.c\
@@ -116,11 +113,8 @@ SRC2 =	ft_putchar.o\
 		ft_strsplit.o\
 		ft_putstr.o\
 		ft_putendl.o\
-		ft_putnbr.o\
-		ft_itoa.o\
 		ft_putstr_fd.o\
 		ft_putchar_fd.o\
-		ft_putnbr_fd.o\
 		ft_putendl_fd.o\
 		ft_lstnew.o\
 		ft_lstdelone.o\
