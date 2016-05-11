@@ -6,72 +6,76 @@
 /*   By: jwalle <jwalle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/11 15:13:03 by jwalle            #+#    #+#             */
-/*   Updated: 2014/11/16 16:34:04 by jwalle           ###   ########.fr       */
+/*   Updated: 2016/05/11 14:16:16 by jbrozzu          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		letters(char const *s, char c)
+static size_t	ft_count_nb_word(char const *s, char c)
 {
-	int l;
+	size_t i;
+	size_t j;
 
-	l = 0;
-	while (s[l] && s[l] != c)
-		l++;
-	return (l);
-}
-
-static int		words(char const *s, char c)
-{
-	unsigned int		words;
-	unsigned int		i;
-	unsigned int		j;
-
-	words = 0;
 	i = 0;
 	j = 0;
-	if (s == 0)
-		return (0);
 	while (s[i])
 	{
-		j = letters(s + i, c);
-		if (j)
-		{
-			words++;
-			i += j;
-		}
-		else
+		while (s[i] == c && s[i])
 			i++;
+		if (s[i] != c && s[i])
+		{
+			j++;
+			i++;
+			while (s[i] != c && s[i])
+				i++;
+		}
 	}
-	return (words);
+	return (j);
+}
+
+static char		*ft_copy_word(char const *s, size_t *l, char c)
+{
+	char	*str;
+	size_t	i;
+
+	i = 0;
+	while (s[*l] == c && s[*l])
+		*l = *l + 1;
+	if (s[*l] != c && s[*l])
+	{
+		i = *l;
+		while (s[*l] != c && s[*l])
+			*l += 1;
+	}
+	str = ft_strsub(s, (unsigned int)i, (*l - i));
+	return (str);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
 	char	**tab;
-	int		i;
-	int		nbw;
-	int		nbl;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+	size_t	*l;
 
-	i = 0;
-	nbw = 0;
-	if (s == 0)
-		return (0);
-	if ((tab = (char**)malloc(sizeof(char*) * (words(s, c) + 1))) == NULL)
+	tab = NULL;
+	j = 0;
+	k = 0;
+	l = &k;
+	if (!s || !c)
 		return (NULL);
-	while (s[i])
+	i = ft_count_nb_word(s, c);
+	if (s)
+		tab = (char **)malloc(sizeof(char *) * (i + 1));
+	if (!tab)
+		return (NULL);
+	while (i--)
 	{
-		nbl = letters((char*)s + i, c);
-		if (nbl)
-		{
-			tab[nbw] = ft_strsub(s, i, nbl);
-			nbw++;
-			i += nbl;
-		}
-		else
-			i++;
+		tab[j] = ft_copy_word(s, l, c);
+		j++;
 	}
-	tab[nbw] = '\0';
+	tab[j] = NULL;
 	return (tab);
 }

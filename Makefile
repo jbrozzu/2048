@@ -15,7 +15,7 @@ all : $(NAME)
 $(NAME) :
 	make -C libft/ fclean
 	make -C libft/
-	gcc -c -g -Wall -Werror -Wextra -I libft/includes/ $(SRC) -lncurses
+	gcc -c -g -Wall -Werror -Wextra -I libft/includes/ $(SRC)
 	gcc -o $(NAME) $(OBJ) -L libft/ -lft -lncurses
 
 clean:
